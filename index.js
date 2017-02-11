@@ -40,7 +40,7 @@ function imageMe(msg, query, animated, cb) {
       }
 
       try {
-        images = JSON.parse(body).tag.media.nodes;
+        images = JSON.parse(body).tag.top_posts.nodes;
       }
       catch (err) {
         return cb(err);
