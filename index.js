@@ -51,9 +51,15 @@ function imageMe(msg, query, animated, cb) {
       }
 
       images = filterAnimated(images, animated);
-
       image = msg.random(images);
-      cb(null, ensureImageExtension(image.display_src));
+
+      if (animated) {
+        image = 'https://instagram.com/p/' + image.code;
+      }
+      else {
+        image = ensureImageExtension(image.display_src);
+      }
+      cb(null, image);
     });
 }
 
